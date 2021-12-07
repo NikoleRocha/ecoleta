@@ -1,41 +1,37 @@
-<!DOCTYPE html>
-<html lang="en">
-  
-<head>
+  {% extends "layout.html"  %}
+  {% set pageId = "page-create-point" %}
 
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  {% block title %}
   <title>Criar um ponto de coleta</title>
-  <link href="https://fonts.googleapis.com/css2?family=Roboto&family=Ubuntu:wght@700&display=swap" rel="stylesheet">
+  {% endblock title %}
   
-  <link rel="stylesheet" href="/styles/main.css">
+  
+  
+  {% block styles %}
   <link rel="stylesheet" href="/styles/create-point.css">
-  <link rel="stylesheet" href="/styles/responsive.css">
-
-
-</head>
-<body>
-  <div id="page-create-point">
+  {% endblock styles %}
   
-
-    <header>
-      <img src="/assets/Logo.svg" alt="logomarca">
-      <a href="/">
-        <span></span>
-        Voltar para a home</a>
-    </header>
-
-    <form action="">
+<body>
+    {% block content %}
+    {% include "partials/page-header.html" %}
+     <form action="">
       <h1>Cadastro do ponto de coleta</h1>
       <fieldset>
         <legend>
         <h2>Dados da entidade</h2>
       </legend>
 
-      <div class="field">
+      <div class="field-group">
+        <div class="field">
         <label for="name">Nome da entidade</label>
-      <input type="text" name="name">
+      <input type="text" name="name" required="required">
+      </div>
+      <div class="field">
+        <label for="name">Imagem da entidade</label>
+      <input type="url" name="image" 
+      placeholder="https://"
+      required="required">
+      </div>
       </div>
 
 <div class="field-group">
@@ -72,13 +68,14 @@
       <fieldset>
         <legend>
           <h2>Itens de coleta</h2>
+          <span>Selecione um ou mais itens abaixo</span>
         </legend>
 
         <div class="itens-grid">
           
           <li data-id="item-1" >
             <img src="/assets/Lampadas.svg" alt="Lâmpadas">
-            <span>Lâmpadas</span></img>
+            <span>Lâmpadas</span>
           </li>
           <li data-id="item-2">
             <img src="/assets/Baterias.svg" alt="Pilhas e Baterias">
@@ -110,11 +107,12 @@
       <button type="submit">Cadastrar ponto de coleta</button>
 
     </form>
-    
-  
-  
-</div>
-<script src="/scripts/create-point.js"></script>
+    {% endblock content %}
+
+    {% block scripts %}
+    <script src="/scripts/create-point.js"></script>
+    {% endblock scripts %}
+
 
 </body>
 </html>

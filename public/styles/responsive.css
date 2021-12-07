@@ -18,11 +18,23 @@
   #page-search-results {
     grid-template-columns: 1fr 1fr;
   }
+  #page-create-point .field-group {
+    flex-direction: column;
+  }
+  #page-create-point .field-group .field + .field {
+    margin-left: 0;
+  }
 }
 
 @media (min-width: 1700px) {
   #page-home {
     background-position-x: 40vw;
+  }
+}
+
+@media (max-width: 700px) {
+  #page-create-point .itens-grid {
+    grid-template-columns: 1fr 1fr;
   }
 }
 
