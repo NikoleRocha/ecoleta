@@ -15,34 +15,37 @@
    {% include "partials/page-header.html" %}
     
     <main>
+      {% if total > 0 %}
+
       <h4>
-        <strong>2 pontos</strong> encontrados
+        <strong>{{total}} pontos</strong> encontrados
       </h4>
       <div class="cards">
+
+        {% for place in places %}
+
         <div class="card">
-          <img src="/assets/1629930403-290w_1recycle1.png" alt="Colectoria">
-          <h1>Colectoria</h1>
-          <h3>Resíduos Eletrônicos, Lâmpadas</h3>
+          <img src="{{place.image}}" alt="{{place.name}}">
+          <h1>{{place.name}}</h1>
+          <h3>{{place.items}}</h3>
           <p>
-            Rio do Sul, Santa Catarina </br>
-            Ana Vitoria Santos, Jardim Froes </br>
-            N°121
+            {{place.city}} {{place.state}}
+             </br>
+             {{place.adress}}
+             </br>
+            {{place.adress2}}
           </p>
     
         </div>
-        <div class="card">
-          <img src="/assets/istockphoto-1290513601-170667a.jpg" alt="Paperside">
-          <h1>Paperside</h1>
-          <h3>Papéis e Papelão</h3>
-          <p>
-            Rio do Sul, Santa Catarina </br>
-            Ana Vitoria Santos, Jardim Froes </br>
-            N°121
-          </p>
-    
-        </div>
-      </div>
-    </main>
+        {% endfor %}
+
+        {% else %}
+
+        <h4><strong>Nenhum</strong> local encontrado</h4>
+
+      {% endif %}
+      
+        
   {% endblock content %}
   
 </body>

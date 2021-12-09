@@ -1,3 +1,14 @@
+#modal.point .content {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
+
+#modal.point h1 {
+  color: white;
+  margin-top: 32px;
+}
+
 #modal {
   background-color: #0e0a14ef;
   height: 100vh;

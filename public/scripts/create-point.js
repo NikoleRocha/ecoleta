@@ -29,7 +29,7 @@ function getCities(event) {
     .then(cities => {
 
       for (const city of cities) {
-        citySelect.innerHTML += `<option value="${city.id}">${city.nome}</option>`
+        citySelect.innerHTML += `<option value="${city.nome}">${city.nome}</option>`
       }
       citySelect.disabled = false
     }
@@ -54,6 +54,8 @@ function handleSelecteditem(event) {
   const itemLi = event.target
   itemLi.classList.toggle("selected")
   const itemId = event.target.dataset.id
+
+  // console.log(`ITEM ID : `, itemId)
 
   const alreadySelected = selectedItems.findIndex(item => {
     return item == itemId
